@@ -1,13 +1,13 @@
 // Code DelayedButton Component Here
 import React from "react"
 
-export default function DelayedButton(){
+export default function DelayedButton(props){
   return(
-    <button onClick={()=>{
+    <button onClick={(event)=>{
       event.persist();
-    window.setTimeout(() => {
-      this.props.onDelayedClick(event);
-    }, this.props.delay);
+      window.setTimeout(() => {
+        props.onDelayedClick(event);
+      }, props.delay);
     })}>Delayed</button>;
   )
 }
