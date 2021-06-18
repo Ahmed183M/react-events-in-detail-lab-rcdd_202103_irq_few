@@ -3,6 +3,11 @@ import React from "react"
 
 export default function DelayedButton(){
   return(
-    <button onClick={this.handleClick}>Delayed</button>;
+    <button onClick={()=>{
+      event.persist();
+    window.setTimeout(() => {
+      this.props.onDelayedClick(event);
+    }, this.props.delay);
+    })}>Delayed</button>;
   )
 }
